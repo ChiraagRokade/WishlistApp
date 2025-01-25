@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.example.wishlistapp.ui.theme.WishlistAppTheme
-import com.example.wishlistapp.views.HomeView
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +17,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             WishlistAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    HomeView(
-                        modifier = Modifier.padding(innerPadding)
-                    )
+//                    HomeView(
+//                        modifier = Modifier.padding(innerPadding)
+//                    )
+                    Navigation(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
