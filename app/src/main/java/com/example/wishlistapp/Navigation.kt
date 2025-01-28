@@ -10,7 +10,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.wishlistapp.viewmodels.WishViewModel
 import com.example.wishlistapp.views.HomeView
 import com.example.wishlistapp.views.Screen
-import com.example.wishlistapp.views.WishAddView
+import com.example.wishlistapp.views.AddEditWishDetailView
 
 @Composable
 fun Navigation(viewModel: WishViewModel = viewModel(), navController: NavHostController = rememberNavController(),modifier: Modifier = Modifier){
@@ -20,10 +20,10 @@ fun Navigation(viewModel: WishViewModel = viewModel(), navController: NavHostCon
         modifier = modifier
     ){
         composable(Screen.HomeScreen.route){
-            HomeView()
+            HomeView(navController = navController, viewModel = viewModel)
         }
         composable(Screen.AddScreen.route){
-            WishAddView()
+            AddEditWishDetailView(id = 0L, viewModel = viewModel, navController = navController)
         }
 
     }
