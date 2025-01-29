@@ -1,13 +1,15 @@
 package com.example.wishlistapp.data
 
+import kotlinx.coroutines.flow.Flow
+
 class WishRepository(private val wishDao: WishDao) {
     suspend fun addWish(wish: Wish) {
         wishDao.addWish(wish)
     }
 
-    fun getWished(): List<Wish> = wishDao.getAllWishes()
+    fun getWished(): Flow<List<Wish>> = wishDao.getAllWishes()
 
-    fun getAWishById(id: Long): Wish? = wishDao.getWishById(id)
+    fun getAWishById(id: Long): Flow<Wish> = wishDao.getWishById(id)
 
     suspend fun updateWish(wish: Wish) {
         wishDao.updateWish(wish)

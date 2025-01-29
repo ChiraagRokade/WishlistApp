@@ -6,6 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 abstract class WishDao {
@@ -18,9 +19,9 @@ abstract class WishDao {
     @Delete
     abstract suspend fun deleteWish(wishEntity: Wish)
 
-    @Query("SELECT * FROM `wish_table` WHERE id = :id")
-    abstract fun getWishById(id: Long): Wish?
+    @Query("SELECT * FROM `wish_table` WHERE id=:id")
+    abstract fun getWishById(id: Long): Flow<Wish>
 
     @Query("SELECT * FROM `wish_table`")
-    abstract fun getAllWishes(): List<Wish>
+    abstract fun getAllWishes(): Flow<List<Wish>>
 }
